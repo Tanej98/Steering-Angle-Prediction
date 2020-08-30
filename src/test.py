@@ -11,6 +11,7 @@ for l in f:
     p = config.IMAGE_FOLDER + p
     paths.append(p)
     t = (t.replace('\n', ""))
+    t = float(t) * 3.14 / 180.0
     targets.append(t)
 f.close()
 
@@ -18,17 +19,8 @@ d = {'path': paths, 'target': targets}
 
 df = pd.DataFrame(d, columns=['path', 'target'])
 
-df.to_csv(config.IMAGE_FOLDER+"data2.csv", index=False)
+df.to_csv(config.IMAGE_FOLDER+"data.csv", index=False)
 print("DataFrame saved to the folder")
-df = pd.read_csv(config.IMAGE_FOLDER+"data2.csv")
+df = pd.read_csv(config.IMAGE_FOLDER+"data.csv")
 print(df.tail())
 
-# import model
-# import torch
-
-# v = torch.randn(1, 3, 66, 200)
-# m = model.SelfDrivingModel()
-
-# o = m.forward(v)
-
-# print(o)

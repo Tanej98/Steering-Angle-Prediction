@@ -47,32 +47,3 @@ if __name__ == "__main__":
         dst = cv2.warpAffine(img, M, (cols, rows))
         cv2.imshow("steering wheel", dst)
         i += 1
-
-
-# if __name__ == "__main__":
-#     data = pd.read_csv(config.IMAGE_FILE_CSV)
-
-#     path = data.path.values
-#     target = data.target.values
-
-#     dataset = dataset.DrivingDataset(
-#         path, target, config.IMAGE_FOLDER, (66, 200))
-
-#     train_loader = torch.utils.data.DataLoader(
-#         dataset, batch_size=1, shuffle=True)
-
-#     model = model.SelfDrivingModel()
-
-#     model.load_state_dict(torch.load('../models/1.h5'))
-
-#     model.eval()
-
-#     for d in train_loader:
-#         image = d['image']
-#         image = image.view(1, 3, 66, 200)
-
-#         target = d['target']
-
-#         output = model.forward(image)
-
-#         print(f'original = {target}, predicted values = {output}')
